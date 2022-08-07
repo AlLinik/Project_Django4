@@ -3,9 +3,14 @@ from django.shortcuts import render
 
 
 def about(request):
-    a = 9 + 6
-    return render(request, 'about.html', {'tuple': a})
+    return render(request, 'about.html')
+
+
+def reverse(request):
+    user_text = request.GET['username']
+    reverse = user_text[::-1]
+    return render(request, 'reverse.html', {'word': reverse})
 
 
 def home(request):
-    return HttpResponse('This is home')
+    return render(request, 'home.html')
